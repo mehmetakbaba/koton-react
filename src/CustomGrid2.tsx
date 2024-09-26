@@ -33,7 +33,7 @@ const SSRMasonry: React.FC = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get<ApiResponse>('https://localhost:7159/api/Product');
+        const response = await axios.get<ApiResponse>('https://localhost:7159/api/Product/category/66ebfb6f896a619bf66d80a9');
         const productImages = response.data.data.map(product => product.productImageUrl[0]).reverse();
         setImages(productImages);
         const defaultHeights = [288, 232, 290, 281, 215, 232, 210, 236, 222, 400, 400, 238, 180, 204, 270, 185, 214, 261, 298, 183, 290, 250, 225, 200, 292, 218, 245];

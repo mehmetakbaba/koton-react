@@ -1,6 +1,6 @@
 import React from 'react';
 import Sequential from './CustomGrid2';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import styled from 'styled-components';
 
 const GlassmorphicCard = styled.div`
@@ -24,9 +24,13 @@ const Home :  React.FC = () => {
     <Box sx={{ position: 'relative' }}>
       <Sequential />
       <GlassmorphicCard style={{ width: 300 }}>
-        <Typography variant="h2" sx={{ color: 'white', textAlign: 'center' }}>
-          KOTON
-        </Typography>
+      <Box sx={{ textAlign: 'center'}}>
+      <img 
+        src="https://054308f5.cdn.akinoncloud.com/static_omnishop/koton422/img/logo.svg" 
+        alt="Koton Logo" 
+        style={{ width: '150px', height: 'auto' }} 
+      />
+    </Box>
       </GlassmorphicCard>
     </Box>
   );
