@@ -1,3 +1,4 @@
+// ProductGrid.tsx
 import React, { useEffect, useState } from 'react';
 import { CircularProgress, Alert } from '@mui/material';
 import axios from 'axios';
@@ -15,15 +16,10 @@ interface Product {
   productImageUrl: string[];
   productColor: string;
   productDescription: string;
-  categoryId: string;
   productSizeQuantity: ProductSizeQuantity;
 }
 
-interface ProductGridProps {
-  apiUrl: string;
-}
-
-const ProductGrid: React.FC<ProductGridProps> = ({ apiUrl }) => {
+const ProductGrid: React.FC<{ apiUrl: string }> = ({ apiUrl }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
