@@ -15,10 +15,10 @@ const Footer: React.FC = () => {
                 textAlign: 'center',
             }}
         >
-            {/* Koton Logo */}
+            
             <Box sx={{ mb: 2 }}>
                 <img
-                    src="https://054308f5.cdn.akinoncloud.com/static_omnishop/koton422/img/logo.svg" // Koton logosu
+                    src="https://054308f5.cdn.akinoncloud.com/static_omnishop/koton422/img/logo.svg" 
                     alt="Koton Logo"
                     style={{ width: '150px', height: 'auto' }}
                 />
@@ -31,8 +31,8 @@ const Footer: React.FC = () => {
                 <Link
                     href="https://kurumsal.koton.com.tr/genel-bilgi/"
                     sx={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}
-                    target="_blank" // Yeni sekmede açılmasını sağlar
-                    rel="noopener noreferrer" // Güvenlik için eklenir
+                    target="_blank" 
+                    rel="noopener noreferrer" 
                 >
                     Hakkımızda
                 </Link>
