@@ -4,6 +4,7 @@ import Home from './Home';
 import Category from './Category';
 import {Routes, Route} from 'react-router-dom';
 import BasketPage from './BasketPage'; 
+import RegisterPage from './RegisterPage';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Route path='/' element={<Home/>} />
       <Route path='/Category/:categoryId' element={<Category/>} />
       <Route path="/Basket" element={<BasketPage />} />
+      <Route path="/Register" element={<RegisterPage />} />
         
       
     </Routes>

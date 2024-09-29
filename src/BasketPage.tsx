@@ -126,9 +126,9 @@ const BasketPage: React.FC = () => {
                     <Button 
                         variant="contained" 
                         sx={{ 
-                            backgroundColor: 'black', // Arka plan rengi siyah
-                            color: 'white', // Yazı rengi beyaz
-                            '&:hover': { // Hover durumunda arka plan rengini daha açık hale getirin
+                            backgroundColor: 'black', 
+                            color: 'white',
+                            '&:hover': { 
                                 backgroundColor: '#333',
                             }
                         }} 

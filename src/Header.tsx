@@ -1,24 +1,33 @@
-// Header.tsx
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { Container, Box } from '@mui/material';
 import { GrShop } from "react-icons/gr";
 import { IoPersonSharp } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 import { RootState } from './redux/Store';
-import { useNavigate } from 'react-router-dom'; // useNavigate import edin
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from './redux/AuthSlice';
 
 const Header: React.FC = () => {
-    const navigate = useNavigate(); // useNavigate hook'u ile yönlendirme işlemleri yapacağız
+    const navigate = useNavigate();
     const cartItems = useSelector((state: RootState) => state.cart.items);
     const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-
-    const handleCartClick = () => {
+    const { isAuthenticated, email } = useSelector((state: RootState) => state.auth); // Sadece email bilgisi kullanılıyor
+    const dispatch = useDispatch();
+    const handleBasketClick = () => {
         navigate('/Basket'); 
     };
 
+    const handleLoginClick = () => {
+        navigate('/Register');
+    };
+    const handleLogoutClick = () => {
+        dispatch(logout());
+    };
     return (
         <AppBar position="static" style={{ background: 'white' }}>
             <Toolbar>
@@ -36,8 +45,21 @@ const Header: React.FC = () => {
                             style={{ width: '150px', height: 'auto' }}
                         />
                     </Box>
-                    <Button color="inherit" style={{ color: 'black' }}><IoPersonSharp /></Button>
-                    <Button color="inherit" style={{ color: 'black' }} onClick={handleCartClick}>
+                    {isAuthenticated ? (
+                        <Box>
+                            <Typography variant="body1" style={{ color: 'black', marginRight: '10px' }}>
+                                {email}
+                            </Typography>
+                            <Button color="inherit" style={{ color: 'black' }} onClick={handleLogoutClick}>
+                                Çıkış
+                            </Button>
+                        </Box>
+                    ) : (
+                        <Button color="inherit" style={{ color: 'black' }} onClick={handleLoginClick}>
+                            <IoPersonSharp />
+                        </Button>
+                    )}
+                    <Button color="inherit" style={{ color: 'black' }} onClick={handleBasketClick}>
                         <GrShop />
                         {totalItems > 0 && (
                             <span style={{ marginLeft: '5px', background: 'red', color: 'white', borderRadius: '12px', padding: '2px 5px', fontSize: '12px' }}>
